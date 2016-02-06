@@ -273,4 +273,6 @@ jQuery(function ($) {
             window.Prism.highlightAll();
         }, 100);
     }
+
+    highlight();
 });
