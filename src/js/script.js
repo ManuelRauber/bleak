@@ -102,6 +102,7 @@ jQuery(function ($) {
         ajaxLinkClass();
         video();
         comments();
+        highlight();
         currentMenuFix();
     }
 
@@ -232,5 +233,13 @@ jQuery(function ($) {
         }
 
         window.ga('send', 'pageview', url);
+    }
+
+    function highlight() {
+        if (!window.Prism) {
+            return;
+        }
+
+        window.Prism.highlightAll();
     }
 });

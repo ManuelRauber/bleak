@@ -73,6 +73,14 @@ a {
   }
 }
 
+.content .inner .post-content {
+  h1, h2, h3, h4, h5, h6 {
+    & ~ pre[class*=language-] {
+      margin-top: 1em + (1em / 3em);
+    }
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   text-rendering: optimizeLegibility;
   color: $color-gray-15;
