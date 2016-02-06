@@ -143,7 +143,29 @@ module.exports = function(grunt) {
                 tasks: ['uglify:devlight']
             }
         },
-        
+        compress: {
+            main: {
+                options: {
+                    archive: 'bleak-mr.zip'
+                },
+                files: [
+                    {
+                        src: [
+                            '*.hbs',
+                            'package.json'
+                        ]
+                    },
+                    {
+                        expand: true,
+                        src: ['assets/**/*']
+                    },
+                    {
+                        expand: true,
+                        src: ['partials/**/*']
+                    }
+                ]
+            }
+        }
     });
 
     grunt.registerTask('build', [
@@ -154,6 +176,7 @@ module.exports = function(grunt) {
         'copy:dist',
         'uglify:dist'
     ]);
+
     grunt.registerTask('default', [
         'sass:dev',
         'cssmin:dev',
@@ -161,5 +184,15 @@ module.exports = function(grunt) {
         'copy:dev',
         'uglify:dev',
         'watch'
+    ]);
+
+    grunt.registerTask('zip', [
+        'clean:dist',
+        'sass:dist',
+        'cssmin:dist',
+        'postcss',
+        'copy:dist',
+        'uglify:dist',
+        'compress:main'
     ]);
 };
