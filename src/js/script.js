@@ -78,6 +78,8 @@ jQuery(function ($) {
      ========================================================================== */
 
     function comments() {
+        var disqus = 'manustechblog';
+
         if (typeof disqus === 'undefined' || !document.getElementById('disqus_thread')) {
             $('.post-comments').css({
                 'display': 'none'
