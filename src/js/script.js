@@ -104,6 +104,7 @@ jQuery(function ($) {
         comments();
         highlight();
         currentMenuFix();
+        readtime();
     }
 
     /* ==========================================================================
@@ -242,4 +243,13 @@ jQuery(function ($) {
 
         window.Prism.highlightAll();
     }
+
+    function readtime() {
+        $('.post-content').readingTime({
+            readingTimeTarget: $('#eta'),
+            wordCountTarget: $('#wordcount')
+        });
+    }
+
+    readtime();
 });

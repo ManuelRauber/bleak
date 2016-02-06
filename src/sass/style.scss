@@ -1433,8 +1433,21 @@ body {
     }
 
     .post-more {
-      display: block;
       margin-top: 1.5em;
+
+      .left {
+        float: left;
+      }
+
+      .right {
+        float: right;
+        font-size: 0.875em;
+
+        i {
+          color: $color-blue-dark;
+          font-size: 80%;
+        }
+      }
 
       a {
         display: inline-block;
@@ -1805,3 +1818,8 @@ body {
   }
 }
 
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}

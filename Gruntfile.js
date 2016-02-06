@@ -18,7 +18,8 @@ module.exports = function(grunt) {
 				'bower_components/masonry/dist/masonry.pkgd.min.js',
 				'bower_components/fitvids/jquery.fitvids.js',
 				'bower_components/nprogress/nprogress.js',
-                'src/vendor-js/prism.js'
+                'src/vendor-js/prism.js',
+                'src/vendor-js/readtime.js'
 			],
 			'cssDependencies': [
 				'bower_components/normalize.css/normalize.css',
