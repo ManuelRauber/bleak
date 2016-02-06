@@ -1,221 +1,226 @@
-jQuery(function($) {
+jQuery(function ($) {
 
-	var html = $('html');
-	var body = $('body');
+    var html = $('html');
+    var body = $('body');
 
-	/* ==========================================================================
-	   Menu Function
-	   ========================================================================== */
+    /* ==========================================================================
+     Menu Function
+     ========================================================================== */
 
-	body.on('click', '[data-action="menu"]', function() {
-		var action = $(this).data('action');
-		var target = $('[data-target="' + $(this).data('target') + '"]').not('[data-action]');
-		menu(target)
-	});
+    body.on('click', '[data-action="menu"]', function () {
+        var action = $(this).data('action');
+        var target = $('[data-target="' + $(this).data('target') + '"]').not('[data-action]');
+        menu(target)
+    });
 
-	var menuActive = false;
-	function menu(target) {
-		if(!menuActive) {
-			html.addClass('menu-initial');
-			target.addClass('initial');
-			setTimeout(function() {
-				html.addClass('menu-active');
-				target.addClass('active');
-			}, 1);
-			menuActive = true;
-		} else {
-			target.removeClass('active');
-			html.removeClass('menu-active');
-			setTimeout(function() {
-				target.removeClass('initial');
-				html.removeClass('menu-initial');
-			}, 300);
-			menuActive = false;
-		}
-	}
+    var menuActive = false;
 
-	body.on('click', '.overlay, #menu a', function() {
-		if (html.hasClass('menu-active')) {
-			var target = $('[data-target="menu"]').not('[data-action]');
-			menu(target);
-		}
-	});
+    function menu(target) {
+        if (!menuActive) {
+            html.addClass('menu-initial');
+            target.addClass('initial');
+            setTimeout(function () {
+                html.addClass('menu-active');
+                target.addClass('active');
+            }, 1);
+            menuActive = true;
+        } else {
+            target.removeClass('active');
+            html.removeClass('menu-active');
+            setTimeout(function () {
+                target.removeClass('initial');
+                html.removeClass('menu-initial');
+            }, 300);
+            menuActive = false;
+        }
+    }
 
-	/* ==========================================================================
-	   Current Menu Item
-	   ========================================================================== */
+    body.on('click', '.overlay, #menu a', function () {
+        if (html.hasClass('menu-active')) {
+            var target = $('[data-target="menu"]').not('[data-action]');
+            menu(target);
+        }
+    });
 
-	/*
-		Actually this should be handled by GHost itself, but the {{current}} handler doesn't
-		work as aspected everytime so I add this little FUnction to fix this on the client side.
-	*/
+    /* ==========================================================================
+     Current Menu Item
+     ========================================================================== */
 
-	function currentMenuFix() {
-		$('.menu-list-item a').each(function() {
-			var link = $(this);
-			link.removeClass('current');
-			if(link.attr('href') == window.location.href) {
-				link.addClass('current');
-			}
-		});
-	}
-	currentMenuFix();
+    /*
+     Actually this should be handled by GHost itself, but the {{current}} handler doesn't
+     work as aspected everytime so I add this little FUnction to fix this on the client side.
+     */
 
-	/* ==========================================================================
-	   Fitvids
-	   ========================================================================== */
+    function currentMenuFix() {
+        $('.menu-list-item a').each(function () {
+            var link = $(this);
+            link.removeClass('current');
+            if (link.attr('href') == window.location.href) {
+                link.addClass('current');
+            }
+        });
+    }
 
-	function video() {
-		$('#wrapper').fitVids();
-	}
-	video();
+    currentMenuFix();
 
-	/* ==========================================================================
-	   Initialize and load Disqus
-	   ========================================================================== */
+    /* ==========================================================================
+     Fitvids
+     ========================================================================== */
 
-	function comments() {
-		if (typeof disqus === 'undefined' || !document.getElementById('disqus_thread')) {
-			$('.post-comments').css({
-				'display' : 'none'
-			});
-		} else {
-			$.ajax({
-				type: "GET",
-				url: "//" + disqus + ".disqus.com/embed.js",
-				dataType: "script",
-				cache: true
-			});
-		}
-	}
-	comments();
+    function video() {
+        $('#wrapper').fitVids();
+    }
 
-	/* ==========================================================================
-	   Reload all scripts after AJAX load
-	   ========================================================================== */
+    video();
 
-	function reload() {
-		ajaxLinkClass();
-		video();
-		comments();
-		currentMenuFix();
-	}
+    /* ==========================================================================
+     Initialize and load Disqus
+     ========================================================================== */
 
-	/* ==========================================================================
-	   Add class for ajax loading
-	   ========================================================================== */
+    function comments() {
+        if (typeof disqus === 'undefined' || !document.getElementById('disqus_thread')) {
+            $('.post-comments').css({
+                'display': 'none'
+            });
+        } else {
+            $.ajax({
+                type: "GET",
+                url: "//" + disqus + ".disqus.com/embed.js",
+                dataType: "script",
+                cache: true
+            });
+        }
+    }
 
-	function ajaxLinkClass() {
+    comments();
 
-		$('a[href^="' + window.location.origin + '"], .post-image a, .post-title a, .post-more a, .post-meta a, .post-tags a, #pagination a').each(function() {
-			var link = $(this);
+    /* ==========================================================================
+     Reload all scripts after AJAX load
+     ========================================================================== */
 
-			if(!link.hasClass('rss')) {
-				link.addClass('js-ajax-link');
+    function reload() {
+        ajaxLinkClass();
+        video();
+        comments();
+        currentMenuFix();
+    }
 
-				if (link.attr('href').indexOf('page') > -1) {
-					link.addClass('js-archive-index');
-				}
+    /* ==========================================================================
+     Add class for ajax loading
+     ========================================================================== */
 
-				if (link.attr('href') == window.location.origin) {
-					link.addClass('js-show-index');
-				}
+    function ajaxLinkClass() {
 
-				if (link.attr('href').indexOf('tag') > -1) {
-					link.addClass('js-tag-index');
-				}
+        $('a[href^="' + window.location.origin + '"], .post-image a, .post-title a, .post-more a, .post-meta a, .post-tags a, #pagination a').each(function () {
+            var link = $(this);
 
-				if (link.attr('href').indexOf('author') > -1) {
-					link.addClass('js-author-index');
-				}
-			}
-		});
-	}
-	ajaxLinkClass();
+            if (!link.hasClass('rss')) {
+                link.addClass('js-ajax-link');
 
-	/* ==========================================================================
-	   Ajax Loading
-	   ========================================================================== */
+                if (link.attr('href').indexOf('page') > -1) {
+                    link.addClass('js-archive-index');
+                }
 
-	var History = window.History;
-	var loading = false;
-	var ajaxContainer = $('#ajax-container');
+                if (link.attr('href') == window.location.origin) {
+                    link.addClass('js-show-index');
+                }
 
-	if (!History.enabled) {
-		return false;
-	}
+                if (link.attr('href').indexOf('tag') > -1) {
+                    link.addClass('js-tag-index');
+                }
 
-	History.Adapter.bind(window, 'statechange', function() {
-		html.addClass('loading');
-		var State = History.getState();
-		$.get(State.url, function(result) {
-			var $html = $(result);
-			var newContent = $('#ajax-container', $html).contents();
-			var title = result.match(/<title>(.*?)<\/title>/)[1];
+                if (link.attr('href').indexOf('author') > -1) {
+                    link.addClass('js-author-index');
+                }
+            }
+        });
+    }
 
-			ajaxContainer.fadeOut(500, function() {
-				if(html.hasClass('push-next')) {
-					html.removeClass('push-next');
-					html.addClass('pushed-next');
-				}
-				if(html.hasClass('push-prev')) {
-					html.removeClass('push-prev');
-					html.addClass('pushed-prev');
-				}
-				document.title = $('<textarea/>').html(title).text();
-				ajaxContainer.html(newContent);
-				body.removeClass();
-				body.addClass($('#body-class').attr('class'));
-				NProgress.done();
-				ajaxContainer.fadeIn(500);
-				$(document).scrollTop(0);
-				setTimeout(function() {
-					html.removeClass('loading');
-				}, 50);
-				reload();
-				loading = false;
-			});
-		});
-	});
-	
-	body.on('click', '.js-ajax-link', function(e) {
-	    e.preventDefault();
+    ajaxLinkClass();
 
-		var link = $(this);
+    /* ==========================================================================
+     Ajax Loading
+     ========================================================================== */
 
-		if(link.hasClass('post-nav-item') || link.hasClass('pagination-item')) {
-			if(link.hasClass('post-nav-next') || link.hasClass('pagination-next')) {
-				html.removeClass('pushed-prev');
-				html.addClass('push-next');
-			}
-			if(link.hasClass('post-nav-prev') || link.hasClass('pagination-prev')) {
-				html.removeClass('pushed-next');
-				html.addClass('push-prev');
-			}
-		} else {
-			html.removeClass('pushed-next');
-			html.removeClass('pushed-prev');
-		}
+    var History = window.History;
+    var loading = false;
+    var ajaxContainer = $('#ajax-container');
 
-	    if (loading === false) {
-			var currentState = History.getState();
-			var url = $(this).prop('href');
-			var title = $(this).attr('title') || null;
+    if (!History.enabled) {
+        return false;
+    }
 
-	        if (url.replace(/\/$/, "") !== currentState.url.replace(/\/$/, "")) {
-				loading = true;
-				html.addClass('loading');
-				NProgress.start();
-				History.pushState({}, title, url);
-	        }
-	    }
-	});
+    History.Adapter.bind(window, 'statechange', function () {
+        html.addClass('loading');
+        var State = History.getState();
+        $.get(State.url, function (result) {
+            var $html = $(result);
+            var newContent = $('#ajax-container', $html).contents();
+            var title = result.match(/<title>(.*?)<\/title>/)[1];
 
-	body.on('click', '#post-index .post .js-ajax-link', function() {
-		var post = $(this).parents('.post');
-		post.addClass('initial');
-		setTimeout(function() {
-			post.addClass('active');
-		}, 1);
-	});
+            ajaxContainer.fadeOut(500, function () {
+                if (html.hasClass('push-next')) {
+                    html.removeClass('push-next');
+                    html.addClass('pushed-next');
+                }
+                if (html.hasClass('push-prev')) {
+                    html.removeClass('push-prev');
+                    html.addClass('pushed-prev');
+                }
+                document.title = $('<textarea/>').html(title).text();
+                ajaxContainer.html(newContent);
+                body.removeClass();
+                body.addClass($('#body-class').attr('class'));
+                NProgress.done();
+                ajaxContainer.fadeIn(500);
+                $(document).scrollTop(0);
+                setTimeout(function () {
+                    html.removeClass('loading');
+                }, 50);
+                reload();
+                loading = false;
+            });
+        });
+    });
+
+    body.on('click', '.js-ajax-link', function (e) {
+        e.preventDefault();
+
+        var link = $(this);
+
+        if (link.hasClass('post-nav-item') || link.hasClass('pagination-item')) {
+            if (link.hasClass('post-nav-next') || link.hasClass('pagination-next')) {
+                html.removeClass('pushed-prev');
+                html.addClass('push-next');
+            }
+            if (link.hasClass('post-nav-prev') || link.hasClass('pagination-prev')) {
+                html.removeClass('pushed-next');
+                html.addClass('push-prev');
+            }
+        } else {
+            html.removeClass('pushed-next');
+            html.removeClass('pushed-prev');
+        }
+
+        if (loading === false) {
+            var currentState = History.getState();
+            var url = $(this).prop('href');
+            var title = $(this).attr('title') || null;
+
+            if (url.replace(/\/$/, "") !== currentState.url.replace(/\/$/, "")) {
+                loading = true;
+                html.addClass('loading');
+                NProgress.start();
+                History.pushState({}, title, url);
+            }
+        }
+    });
+
+    body.on('click', '#post-index .post .js-ajax-link', function () {
+        var post = $(this).parents('.post');
+        post.addClass('initial');
+        setTimeout(function () {
+            post.addClass('active');
+        }, 1);
+    });
 });
