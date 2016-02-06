@@ -12,6 +12,9 @@ $breakpoint-desktop:	70em;
 $color-green-85: #36D995;
 $color-green-72: #2DB77E;
 
+$color-blue-dark: #2F5BCC;
+$color-blue-light: #298EE3;
+
 $color-yellow-100:	#FFC336;
 
 $color-gray-97: #F2F3F5;
@@ -28,8 +31,8 @@ $color-gray-15: #1F2026;
 	backgrounds or as background color for light and dark text color
 */
 
-$color-primary-default:		$color-green-85; /* Light */
-$color-primary-active:		$color-green-72; /* Dark */
+$color-primary-default:		$color-blue-light; /* Light */
+$color-primary-active:		$color-blue-dark; /* Dark */
 
 
 /* ==========================================================================
@@ -1037,6 +1040,10 @@ body {
 	transform-style: preserve-3d;
 	opacity: 1;
 
+	.icomoon-heart {
+		color: crimson;
+	}
+
 	a {
 		color: $color-gray-65;
 		font-weight: 400;
@@ -1756,3 +1763,4 @@ body {
 		color: $color-gray-65;
 	}
 }
+

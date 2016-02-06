@@ -1,11 +1,15 @@
 {
-  "name": "bleak",
+  "name": "bleak-mr",
   "version": "1.0.2",
   "description": "Ghost Theme",
-  "author": "Peter Amende",
+  "author": "Manuel Rauber, Peter Amende",
   "repository": {
     "type": "git",
-    "url": "git://github.com/zutrinken/bleak.git"
+    "url": "git://github.com/ManuelRauber/bleak.git"
+  },
+  "scripts": {
+    "bower": "bower",
+    "grunt": "grunt"
   },
   "license": "MIT",
   "devDependencies": {
