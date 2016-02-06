@@ -89,7 +89,7 @@ jQuery(function ($) {
                 return window.DISQUS.reset({
                     reload: true,
                     config: function () {
-                        this.page.identifier = location.hash;
+                        this.page.identifier = location.pathname;
                         this.page.url = location.origin + location.pathname;
                     }
                 });
