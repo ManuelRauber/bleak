@@ -90,7 +90,7 @@ jQuery(function ($) {
                     reload: true,
                     config: function () {
                         this.page.identifier = location.hash;
-                        this.page.url = location.href;
+                        this.page.url = location.origin + location.pathname;
                     }
                 });
             }
