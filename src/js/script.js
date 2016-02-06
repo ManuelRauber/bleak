@@ -179,6 +179,8 @@ jQuery(function ($) {
                 }, 50);
                 reload();
                 loading = false;
+
+                sendPageView(State.hash);
             });
         });
     });
@@ -223,4 +225,12 @@ jQuery(function ($) {
             post.addClass('active');
         }, 1);
     });
+
+    function sendPageView(url) {
+        if (!window.ga) {
+            return;
+        }
+
+        window.ga('send', 'pageview', url);
+    }
 });
