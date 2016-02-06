@@ -142,7 +142,8 @@ module.exports = function(grunt) {
                 files: '<%=  config.jsSrcDir %>/**/*.js',
                 tasks: ['uglify:devlight']
             }
-        }
+        },
+        
     });
 
     grunt.registerTask('build', [
