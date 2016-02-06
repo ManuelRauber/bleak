@@ -849,6 +849,57 @@ body {
   position: relative;
   padding: 4em 0;
 
+  .header-social-media {
+    text-align: center;
+    position: relative;
+    margin-top: 1em;
+    font-size: 1.5em;
+
+    &:after {
+      content: '';
+      position: absolute;
+      height: 1px;
+      width: 100px;
+      margin-left: -50px;
+      left: 50%;
+      top: -0.5em;
+      background: $color-gray-85;
+    }
+
+    .social {
+      padding-left: 10px;
+      padding-right: 10px;
+
+      &.github:hover i {
+        color: #4183c4;
+      }
+
+      &.stack-overflow:hover i {
+        color: #fe7a15;
+      }
+
+      &.twitter:hover i {
+        color: #55acee;
+      }
+
+      &.facebook:hover i {
+        color: #3b5998;
+      }
+
+      &.instagram:hover i {
+        color: #3f729b;
+      }
+
+      &.xing:hover i {
+        color: #026466;
+      }
+
+      &.linkedin:hover i {
+        color: #0077b5;
+      }
+    }
+  }
+
   .inner {
     position: relative;
     z-index: 2;
@@ -1474,10 +1525,10 @@ body {
       }
 
       &.icon-twitter {
-        background-color: #3ea9dd;
+        background-color: #55acee;
       }
       &.icon-facebook {
-        background-color: #3c5a98;
+        background-color: #3b5998;
       }
       &.icon-gplus {
         background-color: #d14836;
