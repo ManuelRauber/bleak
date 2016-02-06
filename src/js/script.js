@@ -177,7 +177,8 @@ jQuery(function($) {
 			});
 		});
 	});
-	$('body').on('click', '.js-ajax-link', function(e) {
+	
+	body.on('click', '.js-ajax-link', function(e) {
 	    e.preventDefault();
 
 		var link = $(this);
@@ -210,7 +211,7 @@ jQuery(function($) {
 	    }
 	});
 
-	$('body').on('click', '#post-index .post .js-ajax-link', function() {
+	body.on('click', '#post-index .post .js-ajax-link', function() {
 		var post = $(this).parents('.post');
 		post.addClass('initial');
 		setTimeout(function() {
