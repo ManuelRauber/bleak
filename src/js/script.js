@@ -85,6 +85,16 @@ jQuery(function ($) {
                 'display': 'none'
             });
         } else {
+            if (window.DISQUS) {
+                return window.DISQUS.reset({
+                    reload: true,
+                    config: function () {
+                        this.page.identifier = location.hash;
+                        this.page.url = location.href;
+                    }
+                });
+            }
+
             $.ajax({
                 type: "GET",
                 url: "//" + disqus + ".disqus.com/embed.js",
