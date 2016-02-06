@@ -95,6 +95,31 @@ jQuery(function ($) {
     comments();
 
     /* ==========================================================================
+     Reading Time
+     ========================================================================== */
+
+    function readingTime() {
+        // Don't execute on the front page
+        if (location.pathname === '/') {
+            return;
+        }
+
+        var post = body.find('article');
+        var postReadingTime = post.find('.reading-time');
+        var postContent = post.find('.post-content');
+
+        postContent.readingTime({
+            readingTimeTarget: postReadingTime.find('.estimated-reading-time'),
+            wordCountTarget: postReadingTime.find('.word-count'),
+            error: function () {
+                postReadingTime.find('.reading-time').remove();
+            }
+        });
+    }
+
+    readingTime();
+
+    /* ==========================================================================
      Reload all scripts after AJAX load
      ========================================================================== */
 
@@ -104,7 +129,7 @@ jQuery(function ($) {
         comments();
         highlight();
         currentMenuFix();
-        readtime();
+        readingTime();
     }
 
     /* ==========================================================================
@@ -241,15 +266,9 @@ jQuery(function ($) {
             return;
         }
 
-        window.Prism.highlightAll();
+        // Wait a short time before trying to highlight
+        setTimeout(function () {
+            window.Prism.highlightAll();
+        }, 100);
     }
-
-    function readtime() {
-        $('.post-content').readingTime({
-            readingTimeTarget: $('#eta'),
-            wordCountTarget: $('#wordcount')
-        });
-    }
-
-    readtime();
 });

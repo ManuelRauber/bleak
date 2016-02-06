@@ -10,16 +10,16 @@
 
 			<header class="post-header">
 				<span class="post-meta">
-					<span class="post-author">{{author}}</span> | <span class="post-date">{{date format="DD MMM YYYY"}} | <span id="eta"></span> (<span id="wordcount"></span> words)</span>
-				</span>
+                    <span class="post-author">{{author}}</span> | <span class="post-date">{{date format="DD MMM YYYY"}} <span class="reading-time">| <span class="estimated-reading-time"></span> (<span class="word-count"></span> words)</span></span>
+                </span>
 				<div class="clear"></div>
 				<h1 class="post-title">{{{title}}}</h1>
 			</header>
-		
+
 			<section class="post-content">
 				{{content}}
 			</section>
-			
+
 			<footer class="post-footer">
 				<div class="post-tags">
 					{{tags separator=" "}}
@@ -36,13 +36,13 @@
 					</a>
 				</div>
 			</footer>
-			
+
 			<aside class="post-comments">
 				<div id="disqus_thread"></div>
 			</aside>
-			
+
 			</div>
-			
+
 			<nav class="post-nav">
 				{{#next_post}}
 					<a class="post-nav-item post-nav-next" href="{{url absolute="true"}}">
