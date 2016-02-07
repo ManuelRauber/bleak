@@ -32,8 +32,9 @@
 				</div>
 				<div class="nav-menu">
 					<a class="rss" href="http://feeds.feedburner.com/ManusTechblog"><i class="icon-rss"></i></a>
+                    <a class="search" data-action="overlay" data-target="search"><i class="icomoon-search"></i></a>
 					{{#if @blog.navigation}}
-					<a class="menu" data-action="menu" data-target="menu"><i class="icon-menu"></i></a>
+					<a class="menu" data-action="overlay" data-target="menu"><i class="icon-menu"></i></a>
 					{{/if}}
 				</div>
 			</nav>			
@@ -48,6 +49,8 @@
 			{{#if @blog.navigation}}
 			{{navigation}}
 			{{/if}}
+            {{> search}}
+            <div class="overlay"></div>
 		</div>
 	</section>
 	{{ghost_foot}}

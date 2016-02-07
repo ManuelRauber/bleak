@@ -1,0 +1,35 @@
+<div id="search" data-target="search" class="overlay-content blog-search">
+    <div class="overlay-header">
+        <span class="overlay-label">Search</span>
+        <a class="overlay-close" data-action="overlay" data-target="search"></a>
+    </div>
+    <div class="overlay-inner-content">
+        <div class="search-box">
+            <form onsubmit="return searchIntegration.execute();" id="cse-search-box-form-id">
+                <input type="text" id="cse-search-input-box-id" size="25" autocomplete="off">
+                <button type="submit">Search</button>
+            </form>
+            <p class="info-text">Since Ghost does not provide a search yet, I need to use Google Custom Search. :-)</p>
+        </div>
+
+        <script type="text/javascript"
+                src="//www.google.com/cse/brand?form=cse-search-box-form-id&inputbox=cse-search-input-box-id">
+        </script>
+
+        <div class="search-results">
+            <script>
+                (function () {
+                    var cx = '000925361152388446163:vx7ownnjgbc';
+                    var gcse = document.createElement('script');
+                    gcse.type = 'text/javascript';
+                    gcse.async = true;
+                    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                            '//cse.google.com/cse.js?cx=' + cx;
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(gcse, s);
+                })();
+            </script>
+            <gcse:searchresults-only></gcse:searchresults-only>
+        </div>
+    </div>
+</div>

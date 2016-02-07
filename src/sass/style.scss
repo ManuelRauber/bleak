@@ -439,20 +439,6 @@ body {
   background: $color-gray-97;
 }
 
-.menu-initial {
-
-  #wrapper {
-
-  }
-}
-
-.menu-active {
-
-  #wrapper {
-
-  }
-}
-
 /* ==========================================================================
    Push Animations
    ========================================================================== */
@@ -626,7 +612,7 @@ body {
   }
 }
 
-#menu {
+.overlay-content {
   display: none;
   position: fixed;
   left: 50%;
@@ -644,6 +630,154 @@ body {
   opacity: 0;
   z-index: 100;
 
+  /*content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  border-left: 4px solid #298EE3;*/
+
+  &.blog-search {
+    margin-left: 0;
+    left: 20%;
+    width: 60%;
+
+    .info-text {
+      margin: 0.5em;
+      font-size: 65%;
+      color: $color-gray-40;
+    }
+    
+    .search-box {
+      margin-top: 20px;
+      text-align: center;
+
+      input {
+        box-sizing: border-box;
+        height: 40px;
+        padding-left: 8px;
+        padding-right: 8px;
+        border: 1px solid $color-gray-65;
+        border-radius: 4px;
+      }
+
+      button {
+        box-sizing: border-box;
+        padding: 2px 10px 2px 10px;
+        height: 40px;
+        border-radius: 4px;
+        border: 1px solid $color-blue-dark;
+        background-color: #ffffff;
+
+        &:hover {
+          background-color: $color-blue-light;
+          color: white;
+        }
+      }
+    }
+
+    /** Google Adjustments **/
+    .gsc-control-cse {
+      padding: 0;
+      margin: 0;
+      border: none;
+
+      .gsc-results-wrapper-visible {
+        .gsc-above-wrapper-area, .gsc-resultsHeader {
+          display: none;
+        }
+
+        .gsc-cursor-current-page {
+          background-color: #ffffff;
+          text-shadow: none;
+        }
+
+        .gsc-url-bottom {
+          div {
+            color: $color-blue-dark;
+
+            b {
+              color: $color-blue-dark;
+            }
+          }
+        }
+
+        .gsc-webResult {
+          position: relative;
+
+          &.gsc-result {
+            border: none;
+            margin: 20px 0 20px 0;
+            padding: 0;
+
+            &:after {
+              content: '';
+              position: absolute;
+              height: 1px;
+              width: 80%;
+              left: 10%;
+              bottom: -10px;
+              background: #D4D5D9;
+              visibility: visible;
+            }
+
+            &:hover {
+              border: none;
+            }
+          }
+        }
+
+        .gsc-table-result {
+          margin: 0;
+        }
+
+        .gs-webResult {
+          &.gs-result {
+            position: relative;
+            padding-left: 15px;
+            padding-right: 15px;
+
+            &:hover {
+              &:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                border-left: 4px solid $color-blue-dark;
+              }
+            }
+          }
+        }
+
+        .gcsc-branding {
+          padding-right: 30px;
+        }
+
+        .gsc-cursor-box {
+          padding-left: 25px;
+        }
+
+        .gsc-result .gs-title {
+          line-height: 20px;
+          overflow: auto;
+          height: auto;
+        }
+
+        .gsc-result {
+          table, tr, td {
+            border: none;
+          }
+        }
+
+        /** It's called custom search, isn't? **/
+        .gsc-adBlock {
+          display: none;
+        }
+      }
+    }
+  }
+
   @media only screen and (max-width: $breakpoint-tablet) {
     width: 90%;
     left: 5%;
@@ -659,7 +793,7 @@ body {
     transform: translate3d(0, 0, 0);
   }
 
-  .menu-header {
+  .overlay-header {
     position: absolute;
     left: 0;
     top: 0;
@@ -693,14 +827,14 @@ body {
       display: table;
     }
 
-    .menu-label {
+    .overlay-label {
       position: relative;
       display: block;
       float: left;
       z-index: 120;
     }
 
-    .menu-close {
+    .overlay-close {
       position: relative;
       display: block;
       float: right;
@@ -743,7 +877,7 @@ body {
     }
   }
 
-  .menu-list {
+  .overlay-inner-content {
     position: relative;
     list-style: none;
     margin: 0;

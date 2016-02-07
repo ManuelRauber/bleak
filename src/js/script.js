@@ -3,44 +3,53 @@ jQuery(function ($) {
     var html = $('html');
     var body = $('body');
 
+    var currentActiveTarget;
+
+    function hideOverlay(target) {
+        target.removeClass('active');
+        html.removeClass('menu-active');
+        setTimeout(function () {
+            target.removeClass('initial');
+            html.removeClass('menu-initial');
+        }, 300);
+        currentActiveTarget = undefined;
+        searchIntegration.clear();
+    }
+
+    function showOverlay(target) {
+        html.addClass('menu-initial');
+        target.addClass('initial');
+        setTimeout(function () {
+            html.addClass('menu-active');
+            target.addClass('active');
+        }, 1);
+        currentActiveTarget = target;
+    }
+
     /* ==========================================================================
      Menu Function
      ========================================================================== */
 
-    body.on('click', '[data-action="menu"]', function () {
+    body.on('click', '[data-action="overlay"]', function () {
         var action = $(this).data('action');
-        var target = $('[data-target="' + $(this).data('target') + '"]').not('[data-action]');
-        menu(target)
+        var type = $(this).data('target');
+        var target = $('[data-target="' + type + '"]').not('[data-action]');
+        toggleOverlay(target);
     });
 
-    var menuActive = false;
-
-    function menu(target) {
-        if (!menuActive) {
-            html.addClass('menu-initial');
-            target.addClass('initial');
-            setTimeout(function () {
-                html.addClass('menu-active');
-                target.addClass('active');
-            }, 1);
-            menuActive = true;
-        } else {
-            target.removeClass('active');
-            html.removeClass('menu-active');
-            setTimeout(function () {
-                target.removeClass('initial');
-                html.removeClass('menu-initial');
-            }, 300);
-            menuActive = false;
+    body.on('click', '.overlay, #menu a, #search a', function () {
+        if (html.hasClass('menu-active') && currentActiveTarget) {
+            hideOverlay(currentActiveTarget);
         }
+    });
+
+    function toggleOverlay(target) {
+        if (currentActiveTarget) {
+            return hideOverlay(target);
+        }
+
+        showOverlay(target);
     }
-
-    body.on('click', '.overlay, #menu a', function () {
-        if (html.hasClass('menu-active')) {
-            var target = $('[data-target="menu"]').not('[data-action]');
-            menu(target);
-        }
-    });
 
     /* ==========================================================================
      Current Menu Item
@@ -285,4 +294,35 @@ jQuery(function ($) {
     }
 
     highlight();
+
+    var searchIntegration = {
+        getInputAndElement: function () {
+            var input = document.getElementById('cse-search-input-box-id');
+            var element = google.search.cse.element.getElement('searchresults-only0');
+
+            return {
+                input: input,
+                element: element
+            };
+        },
+
+        execute: function () {
+            var inputElement = searchIntegration.getInputAndElement();
+
+            if (inputElement.input.value == '') {
+                inputElement.element.clearAllResults();
+            } else {
+                inputElement.element.execute(inputElement.input.value);
+            }
+            return false;
+        },
+
+        clear: function () {
+            var inputElement = searchIntegration.getInputAndElement();
+
+            inputElement.element.clearAllResults();
+        }
+    };
+
+    window.searchIntegration = searchIntegration;
 });
