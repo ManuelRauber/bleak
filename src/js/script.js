@@ -114,7 +114,6 @@ jQuery(function ($) {
     function reload() {
         ajaxLinkClass();
         video();
-        comments();
         highlight();
         currentMenuFix();
         readingTime();
