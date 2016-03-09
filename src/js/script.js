@@ -83,39 +83,6 @@ jQuery(function ($) {
     video();
 
     /* ==========================================================================
-     Initialize and load Disqus
-     ========================================================================== */
-
-    function comments() {
-        var disqus = 'manustechblog';
-
-        if (typeof disqus === 'undefined' || !document.getElementById('disqus_thread')) {
-            $('.post-comments').css({
-                'display': 'none'
-            });
-        } else {
-            if (window.DISQUS) {
-                return window.DISQUS.reset({
-                    reload: true,
-                    config: function () {
-                        this.page.identifier = location.pathname;
-                        this.page.url = location.origin + location.pathname;
-                    }
-                });
-            }
-
-            $.ajax({
-                type: "GET",
-                url: "//" + disqus + ".disqus.com/embed.js",
-                dataType: "script",
-                cache: true
-            });
-        }
-    }
-
-    comments();
-
-    /* ==========================================================================
      Reading Time
      ========================================================================== */
 
