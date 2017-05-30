@@ -1517,6 +1517,7 @@ body {
       margin: -2em -2em 0;
       overflow: hidden;
       background: $color-primary-default;
+      background: linear-gradient(to bottom, $color-primary-default 0%,$color-primary-default 99%,#ffffff 99%,#ffffff 100%);
 
       @media only screen and (max-width: $breakpoint-tablet) {
         margin: -1em -1em 0;
