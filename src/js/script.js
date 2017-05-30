@@ -107,11 +107,31 @@ jQuery(function ($) {
 
     readingTime();
 
+
+    /* ==========================================================================
+ 	   Masonry
+ 	   ========================================================================== */
+
+    function grid() {
+        var postlist = $('.post-list').masonry({
+            itemSelector: '.post',
+            isAnimated: false,
+            gutter: 0,
+            columnWidth: 1,
+            transitionDuration: 0
+        }).imagesLoaded().always(function () {
+            postlist.masonry('layout');
+        });
+    }
+
+    grid();
+
     /* ==========================================================================
      Reload all scripts after AJAX load
      ========================================================================== */
 
     function reload() {
+        grid();
         ajaxLinkClass();
         video();
         highlight();
@@ -223,7 +243,7 @@ jQuery(function ($) {
             var url = $(this).prop('href');
             var title = $(this).attr('title') || null;
 
-            if (url.replace(/\/$/, "") !== currentState.url.replace(/\/$/, "")) {
+            if (url.replace(/\/$/, '') !== currentState.url.replace(/\/$/, '')) {
                 loading = true;
                 html.addClass('loading');
                 NProgress.start();

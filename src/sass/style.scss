@@ -647,7 +647,7 @@ body {
       font-size: 65%;
       color: $color-gray-40;
     }
-    
+
     .search-box {
       margin-top: 20px;
       text-align: center;
@@ -1366,6 +1366,18 @@ body {
   position: relative;
 
   .post {
+    float: left;
+    width: 33.30%;
+
+    @media only screen and (max-width: $breakpoint-tablet) {
+      width: 49.90%;
+    }
+
+    @media only screen and (max-width: $breakpoint-phone) {
+      width: 100%;
+      float: none;
+    }
+
     transform: translate3d(0, 3em, 0);
     transform-style: preserve-3d;
     opacity: 0;
@@ -1956,4 +1968,10 @@ body {
   content: "";
   display: table;
   clear: both;
+}
+
+.toolbar-item {
+  + .toolbar-item {
+    margin-left: 8px;
+  }
 }
