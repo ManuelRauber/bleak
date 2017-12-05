@@ -1,6 +1,6 @@
 {{!< default}}
 	
-<header id="header" class="header{{#if @blog.cover}} has-cover{{/if}}">
+<header id="header" class="header{{#if @blog.cover_image}} has-cover{{/if}}">
 	<div class="inner">
 		<a class="header-title" href="{{@blog.url}}">
 			<h1 class="header-name">{{@blog.title}}</h1>
@@ -19,8 +19,8 @@
             <a href="https://www.linkedin.com/in/manuelrauber" target="_blank" class="social linkedin"><i class="icomoon-linkedin2"></i></a>
         </div>
 	</div>
-	{{#if @blog.cover}}
-	<div class="header-cover" style="background-image: url({{@blog.cover}})"></div>
+	{{#if @blog.cover_image}}
+	<div class="header-cover" style="background-image: url({{img_url @blog.cover_image}})"></div>
 	{{/if}}
 </header>
 

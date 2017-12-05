@@ -15,6 +15,19 @@ _**Hint:** This theme works with AJAX, so it won’t work with multiple domains 
 * [Tags](http://bleak.zutrinken.com/tag/general)
 * [Author](http://bleak.zutrinken.com/author/zutrinken)
 
+## Screenshots
+
+<table>
+<tr>
+<td valign="top">
+<img src="https://raw.githubusercontent.com/zutrinken/bleak/master/src/screenshot-desktop.jpg" />
+</td>
+<td valign="top">
+<img src="https://raw.githubusercontent.com/zutrinken/bleak/master/src/screenshot-mobile.jpg" />
+</td>
+</tr>
+</table>
+
 ## Features
 
 * Responsive layout
@@ -24,6 +37,7 @@ _**Hint:** This theme works with AJAX, so it won’t work with multiple domains 
 * Featured posts style
 * Automatic code syntax highlight and line numbers
 * Disqus support
+* Subscribers support
 * Sharing buttons
 
 ## Setup
@@ -35,7 +49,7 @@ To enable [Disqus](https://disqus.com/) comments go to your blogs code injection
 Install [Grunt](http://gruntjs.com/getting-started/):
 
 	npm install -g grunt-cli
-	
+
 Install Grunt modules:
 
 	npm install
@@ -58,7 +72,7 @@ Distribute Grunt project:
 
 ## Copyright & License
 
-Copyright (C) 2015 Peter Amende - Released under the MIT License.
+Copyright (C) 2015-2017 Peter Amende - Released under the MIT License.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

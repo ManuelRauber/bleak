@@ -2,12 +2,12 @@
 
 {{#author}}
 
-<header id="header" class="header{{#if cover}} has-cover{{else}}{{#if @blog.cover}} has-cover{{/if}}{{/if}}">
+<header id="header" class="header{{#if cover_image}} has-cover{{else}}{{#if @blog.cover_image}} has-cover{{/if}}{{/if}}">
 	<div class="inner">
 		<span class="header-title">
-			{{#if image}}
+			{{#if profile_image}}
 			<figure class="header-image">
-				<img src="{{image}}" alt="{{name}}" />
+				<img src="{{profile_image}}" alt="{{name}}" />
 			</figure>
 			{{/if}}
 			<h1 class="header-name">{{name}} <em>{{ ../pagination.total}}</em></h1>
@@ -19,16 +19,22 @@
 				<span><i class="icon-location"></i> {{location}}</span>
 				{{/if}}
 				{{#if website}}
-				<span><a href="{{website}}"><i class="icon-link"></i> Website</a></span>
+				<span><i class="icon-link"></i> <a href="{{website}}">Website</a></span>
+				{{/if}}
+				{{#if twitter}}
+				<span><i class="icon-twitter"></i> <a target="_blank" href="https://twitter.com/{{twitter}}">Twitter</a></span>
+				{{/if}}
+				{{#if facebook}}
+				<span><i class="icon-facebook"></i> <a target="_blank" href="https://facebook.com/{{facebook}}">Facebook</a></span>
 				{{/if}}
 			</span>
 		</span>
 	</div>
-	{{#if cover}}
-	<div class="header-cover" style="background-image: url('{{cover}}');"></div>
+	{{#if cover_image}}
+	<div class="header-cover" style="background-image: url('{{img_url cover_image}}');"></div>
 	{{else}}
-	{{#if @blog.cover}}
-	<div class="header-cover" style="background-image: url('{{@blog.cover}}');"></div>
+	{{#if @blog.cover_image}}
+	<div class="header-cover" style="background-image: url('{{img_url @blog.cover_image}}');"></div>
 	{{/if}}
 	{{/if}}
 </header>
