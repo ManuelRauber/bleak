@@ -1,43 +1,44 @@
 {
   "name": "bleak-mr",
-  "version": "1.1.5",
+  "version": "1.2.0",
   "description": "Ghost Theme",
-	"demo": "http://bleak.zutrinken.com",
-	"version": "1.1.1",
-	"engines": {
-		"ghost": ">=1.17.0"
-	},
-	"license": "MIT",
-	"screenshots": {
-		"desktop": "src/screenshot-desktop.jpg",
-		"mobile": "src/screenshot-mobile.jpg"
-	},
-	"author": {
-		"name": "Manuel Rauber, Peter Amende",
-		"email": "manuel.rauber@thinktecture.com",
-		"url": "https://manuel-rauber.com"
-	},
-	"gpm": {
-		"type": "theme",
-		"categories": [
-			"Magazine"
-		]
-	},
-	"keywords": [
-		"ghost",
-		"theme"
-	],
+  "demo": "http://bleak.zutrinken.com",
+  "engines": {
+    "ghost": ">=1.17.0"
+  },
+  "license": "MIT",
+  "screenshots": {
+    "desktop": "src/screenshot-desktop.jpg",
+    "mobile": "src/screenshot-mobile.jpg"
+  },
+  "author": {
+    "name": "Manuel Rauber, Peter Amende",
+    "email": "manuel.rauber@thinktecture.com",
+    "url": "https://manuel-rauber.com"
+  },
+  "gpm": {
+    "type": "theme",
+    "categories": [
+      "Magazine"
+    ]
+  },
+  "keywords": [
+    "ghost",
+    "theme"
+  ],
   "repository": {
     "type": "git",
-     "url": "git://github.com/ManuelRauber/bleak.git"
+    "url": "git://github.com/ManuelRauber/bleak.git"
   },
   "scripts": {
     "bower": "bower",
-    "grunt": "grunt"
+    "grunt": "grunt",
+    "deploy": "grunt zip"
   },
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
     "grunt": "^0.4.5",
+    "grunt-cli": "^1.2.0",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-copy": "^0.8.0",
     "grunt-contrib-cssmin": "^0.13.0",
@@ -47,8 +48,8 @@
     "grunt-sass": "^1.0.0",
     "load-grunt-tasks": "^3.2.0"
   },
-    "config": {
-        "posts_per_page": 15
+  "config": {
+    "posts_per_page": 15
   },
   "dependencies": {
     "grunt-contrib-compress": "0.14.0"

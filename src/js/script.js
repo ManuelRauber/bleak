@@ -30,14 +30,14 @@ jQuery(function ($) {
      Menu Function
      ========================================================================== */
 
-    body.on('click', '[data-action="overlay"]', function () {
-        var action = $(this).data('action');
+    body.on('click', '[data-action="menu"]', function() {
         var type = $(this).data('target');
         var target = $('[data-target="' + type + '"]').not('[data-action]');
         toggleOverlay(target);
     });
 
-    body.on('click', '.overlay, #menu a, #search a', function () {
+
+    body.on('click', '.overlay, #menu a, #search a', function() {
         if (html.hasClass('menu-active') && currentActiveTarget) {
             hideOverlay(currentActiveTarget);
         }
@@ -83,32 +83,6 @@ jQuery(function ($) {
     video();
 
     /* ==========================================================================
-     Reading Time
-     ========================================================================== */
-
-    function readingTime() {
-        // Don't execute on the front page
-        if (location.pathname === '/') {
-            return;
-        }
-
-        var post = body.find('article');
-        var postReadingTime = post.find('.reading-time');
-        var postContent = post.find('.post-content');
-
-        postContent.readingTime({
-            readingTimeTarget: postReadingTime.find('.estimated-reading-time'),
-            wordCountTarget: postReadingTime.find('.word-count'),
-            error: function () {
-                postReadingTime.find('.reading-time').remove();
-            }
-        });
-    }
-
-    readingTime();
-
-
-    /* ==========================================================================
  	   Masonry
  	   ========================================================================== */
 
@@ -136,7 +110,6 @@ jQuery(function ($) {
         video();
         highlight();
         currentMenuFix();
-        readingTime();
     }
 
     /* ==========================================================================

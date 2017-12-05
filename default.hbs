@@ -30,12 +30,12 @@
 				</div>
 				<div class="nav-menu">
 					<a class="rss" href="http://feeds.feedburner.com/ManusTechblog"><i class="icon-rss"></i></a>
-                    <a class="search" data-action="overlay" data-target="search"><i class="icomoon-search"></i></a>
+                    <a class="search" data-action="menu" data-target="search"><i class="icomoon-search"></i></a>
 					{{#if @blog.navigation}}
-					<a class="menu" data-action="overlay" data-target="menu"><i class="icon-menu"></i></a>
+					<a class="menu" data-action="menu" data-target="menu"><i class="icon-menu"></i></a>
 					{{/if}}
 				</div>
-			</nav>			
+			</nav>
 			{{{body}}}
 			<div id="body-class" style="display: none;" class="{{body_class}}"></div>
 			<footer id="footer">
@@ -52,7 +52,7 @@
 		</div>
 	</section>
 	{{ghost_foot}}
-	
+
 	<script type="text/javascript" src="{{asset "js/dependencies.js"}}"></script>
 	<script type="text/javascript" src="{{asset "js/script.js"}}"></script>
 
