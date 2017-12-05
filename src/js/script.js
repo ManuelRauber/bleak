@@ -253,35 +253,4 @@ jQuery(function ($) {
     }
 
     highlight();
-
-    var searchIntegration = {
-        getInputAndElement: function () {
-            var input = document.getElementById('cse-search-input-box-id');
-            var element = google.search.cse.element.getElement('searchresults-only0');
-
-            return {
-                input: input,
-                element: element
-            };
-        },
-
-        execute: function () {
-            var inputElement = searchIntegration.getInputAndElement();
-
-            if (inputElement.input.value == '') {
-                inputElement.element.clearAllResults();
-            } else {
-                inputElement.element.execute(inputElement.input.value);
-            }
-            return false;
-        },
-
-        clear: function () {
-            var inputElement = searchIntegration.getInputAndElement();
-
-            inputElement.element.clearAllResults();
-        }
-    };
-
-    window.searchIntegration = searchIntegration;
 });
