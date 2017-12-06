@@ -699,6 +699,43 @@ body {
         }
       }
     }
+
+    #results {
+      padding-left: 1.5em;
+      padding-right: 1.5em;
+
+      .result-length {
+        font-size: 0.8em;
+
+        + hr {
+          display: none;
+        }
+      }
+
+      h2 {
+        font-size: 1em;
+        margin: 0;
+      }
+
+      h4 {
+        font-size: 0.8em;
+        margin: 0;
+        font-weight: normal;
+        font-style: italic;
+      }
+
+      p.description {
+        font-size: 0.8em;
+        margin: 0;
+        line-height: 1.5;
+      }
+
+      hr {
+        margin-top: 1.5em;
+        margin-bottom: 1.5em;
+        border-color: #ffffff;
+      }
+    }
   }
 
   @media only screen and (max-width: $breakpoint-tablet) {

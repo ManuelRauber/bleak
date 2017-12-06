@@ -13,7 +13,6 @@ jQuery(function ($) {
             html.removeClass('menu-initial');
         }, 300);
         currentActiveTarget = undefined;
-        searchIntegration.clear();
     }
 
     function showOverlay(target) {
@@ -110,6 +109,7 @@ jQuery(function ($) {
         video();
         highlight();
         currentMenuFix();
+        integrateGhostHunter();
     }
 
     /* ==========================================================================
@@ -253,4 +253,22 @@ jQuery(function ($) {
     }
 
     highlight();
+
+    var search;
+    function integrateGhostHunter() {
+        if (search) {
+            search.reset();
+            search = void 0;
+        }
+
+        search = $("#search-field").ghostHunter({
+            results: '#results',
+            onKeyUp: true,
+            onPageLoad: false,
+            result_template: '<hr><a href="{{link}}" class="search-result"><h2>{{title}}</h2><h4>{{pubDate}}</h4><p class="description">{{description}}</p></a>',
+            info_template: '<p class="result-length">Number of posts found: {{amount}}</p>',
+        });
+    }
+
+    integrateGhostHunter();
 });
