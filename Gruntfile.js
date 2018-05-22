@@ -18,12 +18,14 @@ module.exports = function (grunt) {
                 'bower_components/masonry/dist/masonry.pkgd.min.js',
                 'bower_components/fitvids/jquery.fitvids.js',
                 'bower_components/nprogress/nprogress.js',
+                'node_modules/cookieconsent/build/cookieconsent.min.js',
                 'src/vendor-js/prism.js',
                 'src/vendor-js/jquery.ghosthunter.js'
             ],
             'cssDependencies': [
                 'bower_components/normalize.css/normalize.css',
                 'bower_components/nprogress/nprogress.css',
+                'node_modules/cookieconsent/build/cookieconsent.min.css',
                 'src/vendor-css/icomoon.css',
                 'src/vendor-css/prism.css'
             ]
