@@ -1322,7 +1322,6 @@ body {
 .post {
   position: relative;
   z-index: 20;
-  counter-reset: image-counter;
 
   .post-image {
     display: block;
@@ -1396,12 +1395,6 @@ body {
 
     figcaption {
       text-align: center;
-
-      &::before {
-        display: inline;
-        counter-increment: image-counter;
-        content: 'Image ' counter(image-counter) ': ';
-      }
     }
   }
 }
