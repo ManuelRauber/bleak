@@ -19,6 +19,7 @@ module.exports = function (grunt) {
 				'bower_components/fitvids/jquery.fitvids.js',
 				'bower_components/nprogress/nprogress.js',
                 'src/vendor-js/prism.js',
+                'src/vendor-js/jquery.ghosthunter.js',
 				'bower_components/reading-time/build/readingTime.min.js'
 			],
 			'cssDependencies': [
