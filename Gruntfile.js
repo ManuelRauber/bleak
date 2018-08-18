@@ -11,20 +11,20 @@ module.exports = function (grunt) {
             'cssTargetDir': 'css',
             'jsSrcDir': 'src/js',
             'jsTargetDir': 'js',
-            'jsDependencies': [
-                'bower_components/jquery/dist/jquery.min.js',
-                'bower_components/history.js/scripts/bundled/html4+html5/jquery.history.js',
-                'bower_components/imagesloaded/imagesloaded.pkgd.min.js',
-                'bower_components/masonry/dist/masonry.pkgd.min.js',
-                'bower_components/fitvids/jquery.fitvids.js',
-                'bower_components/nprogress/nprogress.js',
-                'node_modules/cookieconsent/build/cookieconsent.min.js',
+			'jsDependencies': [
+				'bower_components/jquery/dist/jquery.min.js',
+				'bower_components/history.js/scripts/bundled/html4+html5/jquery.history.js',
+				'bower_components/imagesloaded/imagesloaded.pkgd.min.js',
+				'bower_components/masonry-layout/dist/masonry.pkgd.min.js',
+				'bower_components/fitvids/jquery.fitvids.js',
+				'bower_components/highlightjs/highlight.pack.min.js',
+				'bower_components/nprogress/nprogress.js',
                 'src/vendor-js/prism.js',
-                'src/vendor-js/jquery.ghosthunter.js'
-            ],
-            'cssDependencies': [
-                'bower_components/normalize.css/normalize.css',
-                'bower_components/nprogress/nprogress.css',
+				'bower_components/reading-time/build/readingTime.min.js'
+			],
+			'cssDependencies': [
+				'bower_components/normalize-css/normalize.css',
+				'bower_components/highlightjs/styles/default.css',
                 'node_modules/cookieconsent/build/cookieconsent.min.css',
                 'src/vendor-css/icomoon.css',
                 'src/vendor-css/prism.css'
@@ -46,7 +46,7 @@ module.exports = function (grunt) {
                     cwd: 'src/fonts/',
                     expand: true
                 }]
-            }
+	        }
         },
         clean: {
             dist: ['assets']
