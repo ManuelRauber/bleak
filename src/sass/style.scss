@@ -1322,6 +1322,7 @@ body {
 .post {
   position: relative;
   z-index: 20;
+  counter-reset: image-counter;
 
   .post-image {
     display: block;
@@ -1386,6 +1387,22 @@ body {
   .post-header {
     padding: 4em 0 0;
     margin-bottom: 3em;
+  }
+
+  figure {
+    img {
+      margin: 2.5rem auto 1.5rem auto;
+    }
+
+    figcaption {
+      text-align: center;
+
+      &::before {
+        display: inline;
+        counter-increment: image-counter;
+        content: 'Image ' counter(image-counter) ': ';
+      }
+    }
   }
 }
 
