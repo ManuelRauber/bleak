@@ -206,7 +206,6 @@ a {
   }
 
   em, i {
-    font-weight: 400;
     font-style: italic;
     color: $color-gray-25;
 
@@ -343,6 +342,7 @@ a {
     margin: 2em 0;
     background-color: transparent;
     border: 1px solid $color-gray-90;
+    border-collapse: collapse;
   }
 
   table th,
