@@ -18,6 +18,7 @@ module.exports = function (grunt) {
 				'bower_components/masonry-layout/dist/masonry.pkgd.min.js',
 				'bower_components/fitvids/jquery.fitvids.js',
 				'bower_components/nprogress/nprogress.js',
+                'node_modules/cookieconsent/build/cookieconsent.min.js',
                 'src/vendor-js/prism.js',
                 'src/vendor-js/jquery.ghosthunter.js',
 				'bower_components/reading-time/build/readingTime.min.js'
