@@ -4,7 +4,7 @@
   "description": "Ghost Theme",
   "demo": "http://bleak.zutrinken.com",
   "engines": {
-    "ghost": ">=1.17.0"
+    "ghost": ">=2.1.0"
   },
   "license": "MIT",
   "screenshots": {
